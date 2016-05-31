@@ -18,31 +18,100 @@
 // create element with jquery
 // $('body').append('<div> hello world </div>');
 // add a button that will add this automatically
+ $('body').submit(function(e){
+      e.preventDefault();
+
+ });
+
+
 
 var task_Counter = 0;
 $('#target').click(function() {
 	//create remove button with same id as the thing you are appending
-	var notCompletedDIV = "<div class='notCompleted' style='float:left'>done</div>";
-	var removeDIV = "<div class='remove' style='float:left'>" + "remove" + "</div>"
+	var notCompletedDIV = "<div class='notCompleted'  style='border-style:solid'>done</div>";
+	var completedDIV = "<div class='completed'  style='border-style:solid'>done</div>";
+	var removeDIV = "<div class='remove'  style='border-style:solid'>" + " remove " + "</div>"
+	var taskDIV = "<div class='taskDetail'>" + $('#new_task').val()+ "</div>" + "<br>" 
+	var doneTaskDIV = "<div class='task' id=task" + task_Counter +">" + completedDIV + removeDIV + "<span class='taskDetail'> <s>" + $('#new_task').val()+ "</s> </span>" + "<br>" + "<br>" +"</div>"
 	var removeTask = 	function(){$('.remove').click(function(){		$(this).parent().remove();		})}	
 
 
-	$('body').append( "<div class='task' id=task" + task_Counter +">" + notCompletedDIV + removeDIV +  $('#new_task').val() + "<br>" +"</div>");
+	$('body').append( "<div class='task' id='task'" + task_Counter +">" + notCompletedDIV + removeDIV + taskDIV +"</div>");
 
 	task_Counter++;
 	removeTask();
 
+	//underline task after clicking on done
 	$('.notCompleted').click(function(){
-		$(this).parent().html("<div class='task' id=task" + task_Counter +">" + notCompletedDIV + removeDIV + '<s>' + $('#new_task').val() + '</s>' + "<br>" +"</div>")
+		$(this).parent().html(doneTaskDIV)
 
 		removeTask();
 
+	})
+
+	//filter completed tasks after hitting completed filter button
+	$('#completedFilter').click(function(){
+
+		$('.notCompleted').parent().fadeOut();
 
 
 	})
+
+	//filter by unfinished tasks
+	$('#notCompletedFilter').click(function(){
+
+		$('.completed').parent().fadeOut()
+
+	})
+
+
+
 	
 })
 
 
+// same thing as abouve but pressing enter key
+$(document).keypress(function(e) {
+	if (e.which ==13){
+	//create remove button with same id as the thing you are appending
+	var notCompletedDIV = "<div class='notCompleted'  style='border-style:solid'>done</div>";
+	var completedDIV = "<div class='completed'  style='border-style:solid'>done</div>";
+	var removeDIV = "<div class='remove'  style='border-style:solid'>" + " remove " + "</div>"
+	var taskDIV = "<div class='taskDetail'>" + $('#new_task').val()+ "</div>" + "<br>" 
+	var doneTaskDIV = "<div class='task' id=task" + task_Counter +">" + completedDIV + removeDIV + "<span class='taskDetail'> <s>" + $('#new_task').val()+ "</s> </span>" + "<br>" + "<br>" +"</div>"
+	var removeTask = 	function(){$('.remove').click(function(){		$(this).parent().remove();		})}	
 
-//use .click to add the text in the text box
+
+	$('body').append( "<div class='task' id='task'" + task_Counter +">" + notCompletedDIV + removeDIV + taskDIV +"</div>");
+
+	task_Counter++;
+	removeTask();
+
+	//underline task after clicking on done
+	$('.notCompleted').click(function(){
+		$(this).parent().html(doneTaskDIV)
+
+		removeTask();
+
+	})
+
+	//filter completed tasks after hitting completed filter button
+	$('#completedFilter').click(function(){
+
+		$('.notCompleted').parent().fadeOut();
+
+
+	})
+
+	//filter by unfinished tasks
+	$('#notCompletedFilter').click(function(){
+
+		$('.completed').parent().fadeOut()
+
+	})
+
+
+
+	
+	}	
+})

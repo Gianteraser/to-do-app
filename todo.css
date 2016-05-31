@@ -1,0 +1,54 @@
+div{
+	padding: 10px;
+
+
+}
+
+div.remove {
+	border-style: solid;
+	color: red;
+	position:relative;
+	top:50px;
+	left:50px;
+
+	width: 200px;
+
+	
+}
+
+div.notCompleted {
+	border-style: solid;
+	color: green;
+	position:relative;
+	top:50px;
+	left:50px;
+
+	width: 200px;
+
+
+
+}
+
+div.completed{
+	border-style: solid;
+	color: green;
+	position:relative;
+	top:50px;
+	left:50px;
+
+	width: 200px;
+
+
+}
+
+div.task{
+
+	position:relative;
+
+}
+
+div.taskDetail{
+
+	color:blue;
+
+}
