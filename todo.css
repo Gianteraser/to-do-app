@@ -7,10 +7,10 @@ div{
 div.remove {
 	border-style: solid;
 	color: red;
-	position:relative;
+	position:static;
 	top:50px;
 	left:50px;
-
+	float:left;
 	width: 200px;
 
 	
@@ -19,10 +19,10 @@ div.remove {
 div.notCompleted {
 	border-style: solid;
 	color: green;
-	position:relative;
+	position:static;
 	top:50px;
 	left:50px;
-
+	float:left;
 	width: 200px;
 
 
@@ -32,10 +32,10 @@ div.notCompleted {
 div.completed{
 	border-style: solid;
 	color: green;
-	position:relative;
+	position:static;
 	top:50px;
 	left:50px;
-
+	float:left;
 	width: 200px;
 
 
