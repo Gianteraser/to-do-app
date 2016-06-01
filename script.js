@@ -99,6 +99,7 @@ $(document).keypress(function(e) {
 	$('#completedFilter').click(function(){
 
 		$('.notCompleted').parent().fadeOut();
+		$('.completed').parent().fadeIn();
 
 
 	})
@@ -107,6 +108,7 @@ $(document).keypress(function(e) {
 	$('#notCompletedFilter').click(function(){
 
 		$('.completed').parent().fadeOut()
+		$('.notCompleted').parent().fadeIn();
 
 	})
 
